@@ -2,7 +2,7 @@
 
 namespace batch_file_renamer
 {
-    bool rename_files(std::vector<std::string> files)
+    bool rename_files(std::vector<boost::filesystem::path> files)
     {
         return true;
     }

@@ -17,8 +17,8 @@ endif()
 
 include(${conan_cmake})
 
-conan_cmake_run(REQUIRES boost_filesystem/1.68.0@bincrafters/stable
-    BASIC_SETUP
+conan_cmake_run(REQUIRES boost_filesystem/1.69.0@bincrafters/stable
+    BASIC_SETUP CMAKE_TARGETS
     BUILD missing
 )
 

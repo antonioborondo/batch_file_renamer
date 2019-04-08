@@ -22,3 +22,8 @@ target_include_directories(batch_file_renamer
     ${PUBLIC_HEADER_FILES_FOLDER}
     ${SOURCE_FILES_FOLDER}
 )
+
+target_link_libraries(batch_file_renamer
+    PRIVATE
+    CONAN_PKG::boost_filesystem
+)
