@@ -24,6 +24,24 @@ target_include_directories(batch_file_renamer
 )
 
 target_link_libraries(batch_file_renamer
-    PRIVATE
+    PUBLIC
     CONAN_PKG::boost_filesystem
+)
+
+set_target_properties(batch_file_renamer PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/${PUBLIC_HEADER_FILES_FOLDER}
+)
+
+set(TEST_FILES
+    ${TEST_FILES_FOLDER}/batch_file_renamer_test.cpp
+)
+
+add_executable(batch_file_renamer_test
+    ${TEST_FILES}
+)
+
+target_link_libraries(batch_file_renamer_test
+    PRIVATE
+    batch_file_renamer
+    CONAN_PKG::gtest
 )

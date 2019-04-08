@@ -2,7 +2,6 @@
 #define BATCH_FILE_RENAMER_H
 
 #define BOOST_FILESYSTEM_NO_DEPRECATED
-
 #include <boost/filesystem/path.hpp>
 
 #include <vector>
