@@ -1,5 +1,5 @@
 image:
-  - Visual Studio 2017
+  - Visual Studio 2013
 
 install:
   - cmd: set PATH=%PATH%;%PYTHON%/Scripts/
@@ -9,9 +9,8 @@ install:
 build_script:
   - cmd: mkdir batch_file_renamer_cmake
   - cmd: cd batch_file_renamer_cmake
-  - cmd: cmake -G "Visual Studio 15 2017 Win64" ../
+  - cmd: cmake -G "Visual Studio 12 2013 Win64" ../
   - cmd: cmake --build . --config Release
 
 test_script:
-  - cmd: cd bin/Release/
-  - cmd: batch_file_renamer_test.exe
+  - cmd: ctest --build-config Release --verbose
