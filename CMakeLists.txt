@@ -21,6 +21,7 @@ conan_cmake_run(
 )
 
 add_subdirectory(src/batch_file_renamer)
+add_subdirectory(src/wpf_app)
 
 # CTest
 enable_testing()
