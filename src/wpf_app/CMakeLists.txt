@@ -4,10 +4,6 @@ include(CSharpUtilities)
 
 set(PROPERTY_FILES
     Properties/AssemblyInfo.cs
-    Properties/Resources.Designer.cs
-    Properties/Resources.resx
-    Properties/Settings.Designer.cs
-    Properties/Settings.settings
 )
 
 set(XAML_FILES
@@ -21,6 +17,7 @@ set(SOURCE_FILES
     ${PROPERTY_FILES}
     ${XAML_FILES}
     App.config
+    MainWindowModel.cs
 )
 
 add_executable(wpf_app ${SOURCE_FILES})
