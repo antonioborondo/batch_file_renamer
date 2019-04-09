@@ -1,6 +1,7 @@
 using BatchFileRenamerCsharp;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 
 namespace WpfApp
 {
@@ -40,14 +41,28 @@ namespace WpfApp
 
         public void OpenDirectory()
         {
-            Filenames = new List<string> { "a.jpg", "b.jpg", "c.jpg", "d.jpg", "e.jpg" };
+            GetFilenamesFromDirectory();
         }
 
         public void RenameFiles()
         {
             BatchFileRenamer.RenameFilesFromDirectory(Directory);
 
-            Filenames = new List<string> { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
+            GetFilenamesFromDirectory();
+        }
+
+        private void GetFilenamesFromDirectory()
+        {
+            var filenamesFromDirectory = new List<string>();
+
+            DirectoryInfo directoryInfo = new DirectoryInfo(Directory);
+            FileInfo[] Files = directoryInfo.GetFiles();
+            foreach (FileInfo file in Files)
+            {
+                filenamesFromDirectory.Add(file.Name);
+            }
+
+            Filenames = filenamesFromDirectory;
         }
     }
 }
