@@ -7,6 +7,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 # Conan
 SET(conan_cmake ${CMAKE_BINARY_DIR}/conan.cmake)
 
@@ -25,9 +27,6 @@ conan_cmake_run(
     BUILD missing
 )
 
-add_subdirectory(src/batch_file_renamer)
-add_subdirectory(src/batch_file_renamer_c)
-add_subdirectory(src/batch_file_renamer_csharp)
 add_subdirectory(src/filesystem_utils)
 add_subdirectory(src/wpf_app)
 

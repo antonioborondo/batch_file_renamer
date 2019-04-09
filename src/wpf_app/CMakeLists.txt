@@ -34,7 +34,7 @@ set_property(TARGET wpf_app PROPERTY WIN32_EXECUTABLE TRUE)
 
 target_link_libraries(wpf_app
     PRIVATE
-    batch_file_renamer_csharp
+    filesystem_utils_csharp
 )
 
 set_property(TARGET wpf_app PROPERTY VS_DOTNET_REFERENCES

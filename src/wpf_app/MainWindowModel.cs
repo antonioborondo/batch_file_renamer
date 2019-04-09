@@ -1,4 +1,4 @@
-using BatchFileRenamerCsharp;
+using FilesystemUtilsCsharp;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -46,7 +46,7 @@ namespace WpfApp
 
         public void RenameFiles()
         {
-            BatchFileRenamer.RenameFilesFromDirectory(Directory);
+            FilesystemUtils.RenameFilesFromDirectory(Directory);
 
             GetFilenamesFromDirectory();
         }
