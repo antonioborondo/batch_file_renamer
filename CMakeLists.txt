@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.10)
 
 project(batch_file_renamer)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 set(BINARY_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
-
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # Conan
 SET(conan_cmake ${CMAKE_BINARY_DIR}/conan.cmake)
@@ -35,4 +35,4 @@ enable_testing()
 
 set(TEST_FILES_DIRECTORY ${CMAKE_SOURCE_DIR}/test_files)
 
-add_test(NAME batch_file_renamer_test COMMAND batch_file_renamer_test ${TEST_FILES_DIRECTORY})
+add_test(NAME filesystem_utils_cxx_test COMMAND filesystem_utils_cxx_test ${TEST_FILES_DIRECTORY})

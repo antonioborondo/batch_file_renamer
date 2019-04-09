@@ -15,12 +15,12 @@ namespace WpfApp
         {
             get
             {
-                return directory;
+                return this.directory;
             }
             set
             {
-                directory = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Directory"));
+                this.directory = value;
+                this.PropertyChanged(this, new PropertyChangedEventArgs("Directory"));
             }
         }
 
@@ -30,39 +30,39 @@ namespace WpfApp
         {
             get
             {
-                return filenames;
+                return this.filenames;
             }
             set
             {
-                filenames = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Filenames"));
+                this.filenames = value;
+                this.PropertyChanged(this, new PropertyChangedEventArgs("Filenames"));
             }
         }
 
         public void OpenDirectory()
         {
-            GetFilenamesFromDirectory();
+            this.GetFilenamesFromDirectory();
         }
 
         public void RenameFiles()
         {
-            FilesystemUtils.RenameFilesFromDirectory(Directory);
+            FilesystemUtils.RenameFilesFromDirectory(this.Directory);
 
-            GetFilenamesFromDirectory();
+            this.GetFilenamesFromDirectory();
         }
 
         private void GetFilenamesFromDirectory()
         {
             var filenamesFromDirectory = new List<string>();
 
-            DirectoryInfo directoryInfo = new DirectoryInfo(Directory);
-            FileInfo[] Files = directoryInfo.GetFiles();
-            foreach (FileInfo file in Files)
+            var directoryInfo = new DirectoryInfo(this.Directory);
+            var files = directoryInfo.GetFiles();
+            foreach (FileInfo file in files)
             {
                 filenamesFromDirectory.Add(file.Name);
             }
 
-            Filenames = filenamesFromDirectory;
+            this.Filenames = filenamesFromDirectory;
         }
     }
 }
