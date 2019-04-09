@@ -14,9 +14,17 @@ namespace WpfApp
 
         private void OpenDirectory_Click(object sender, MouseButtonEventArgs e)
         {
-            if (this.DataContext != null)
+            using (var folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog())
             {
-                (this.DataContext as MainWindowModel).OpenDirectory();
+                if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (this.DataContext != null)
+                    {
+                        var mainWindowModel = (this.DataContext as MainWindowModel);
+                        mainWindowModel.Directory = folderBrowserDialog.SelectedPath;
+                        mainWindowModel.OpenDirectory();
+                    }
+                }
             }
         }
 
