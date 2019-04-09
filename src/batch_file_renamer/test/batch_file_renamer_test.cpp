@@ -1,6 +1,7 @@
 #include "utils.h"
 
 #include <batch_file_renamer/batch_file_renamer.h>
+#include <filesystem_utils/filesystem_utils.h>
 
 #include <boost/filesystem.hpp>
 #include <gtest/gtest.h>
@@ -40,11 +41,11 @@ namespace batch_file_renamer_test
     {
         const auto directory = temporary_test_files_directory / "five_files_ordered_alphabetically";
 
-        const auto filenames = get_filenames_from_directory(directory);
+        ASSERT_TRUE(batch_file_renamer::rename_files_from_directory(directory));
 
-        const auto filenames_expected = batch_file_renamer::rename_files(filenames);
+        const std::vector<fs::path> filenames_expected = { directory / "1.txt", directory / "2.txt", directory / "3.txt", directory / "4.txt", directory / "5.txt"};
 
-        const auto filenames_actual = get_filenames_from_directory(directory);
+        const auto filenames_actual = filesystem_utils::get_filenames_from_directory(directory);
 
         ASSERT_TRUE(std::equal(filenames_expected.begin(), filenames_expected.end(), filenames_actual.begin()));
     }
