@@ -22,7 +22,10 @@ namespace WpfApp
 
         private void RenameFiles_Click(object sender, MouseButtonEventArgs e)
         {
-            // TODO
+            if (this.DataContext != null)
+            {
+                (this.DataContext as MainWindowModel).RenameFiles();
+            }
         }
     }
 }

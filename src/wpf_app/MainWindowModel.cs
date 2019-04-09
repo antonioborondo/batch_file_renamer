@@ -41,5 +41,10 @@ namespace WpfApp
         {
             Filenames = new List<string> { "a.jpg", "b.jpg", "c.jpg", "d.jpg", "e.jpg" };
         }
+
+        public void RenameFiles()
+        {
+            Filenames = new List<string> { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg" };
+        }
     }
 }
