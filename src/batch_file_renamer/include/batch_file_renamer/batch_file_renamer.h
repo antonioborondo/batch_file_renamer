@@ -1,13 +1,11 @@
-#ifndef BATCH_FILE_RENAMER_H
-#define BATCH_FILE_RENAMER_H
+#ifndef BATCH_FILE_RENAMER_BATCH_FILE_RENAMER_H
+#define BATCH_FILE_RENAMER_BATCH_FILE_RENAMER_H
 
 #include <boost/filesystem/path.hpp>
 
-#include <vector>
-
 namespace batch_file_renamer
 {
-    std::vector<boost::filesystem::path> rename_files(const std::vector<boost::filesystem::path>& filenames);
+    bool rename_files_from_directory(const boost::filesystem::path& directory);
 }
 
 #endif
