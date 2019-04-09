@@ -4,13 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="352"
-        Width="349">
+        Title="batch_file_renamer"
+        Width="500"
+        Height="400">
     <Grid>
-        <Button Content="Open folder" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Width="80" Height="20" PreviewMouseDown="OpenDirectory_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="20,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Text="{Binding Directory, UpdateSourceTrigger=PropertyChanged}"/>
-        <ListView HorizontalAlignment="Left" Height="200" Margin="20,60,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding Filenames}"/>
-        <Button Content="Rename files" HorizontalAlignment="Left" Margin="240,280,0,0" VerticalAlignment="Top" Width="80" PreviewMouseDown="RenameFiles_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="10">
+            <WrapPanel VerticalAlignment="Center">
+                <Button Width="100" Margin="0,0,10,0" Content="Open folder" PreviewMouseDown="OpenDirectory_Click"/>
+                <Button Width="100" Margin="0" Content="Rename files" PreviewMouseDown="RenameFiles_Click"/>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10,0,10,10">
+            <ListView ItemsSource="{Binding Filenames}"/>
+        </Grid>
+        <Grid Grid.Row="2" Margin="10,0,10,10">
+            <WrapPanel VerticalAlignment="Center">
+                <Label Content="{Binding Directory}"/>
+            </WrapPanel>
+        </Grid>
     </Grid>
 </Window>
