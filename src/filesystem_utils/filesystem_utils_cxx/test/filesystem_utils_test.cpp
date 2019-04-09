@@ -12,9 +12,9 @@ namespace
     fs::path temporary_test_files_directory;
 }
 
-namespace batch_file_renamer_test
+namespace filesystem_utils_cxx_test
 {
-    class BatchFileRenamerTest : public testing::Test
+    class FilesystemUtilsTest : public testing::Test
     {
     public:
         virtual void SetUp()
@@ -36,7 +36,7 @@ namespace batch_file_renamer_test
         }
     };
 
-    TEST_F(BatchFileRenamerTest, RenameFiles)
+    TEST_F(FilesystemUtilsTest, RenameFiles)
     {
         const auto directory = temporary_test_files_directory / "five_files_ordered_alphabetically";
 
