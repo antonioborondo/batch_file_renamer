@@ -3,7 +3,6 @@
 #include <batch_file_renamer/batch_file_renamer.h>
 
 #include <boost/filesystem.hpp>
-#include <boost/filesystem/path.hpp>
 #include <gtest/gtest.h>
 
 namespace fs = boost::filesystem;
@@ -27,19 +26,25 @@ namespace batch_file_renamer_test
 
         virtual void TearDown()
         {
-            fs::remove_all(temporary_test_files_directory);
+            try
+            {
+                fs::remove_all(temporary_test_files_directory);
+            }
+            catch (const fs::filesystem_error&)
+            {
+            }
         }
     };
 
     TEST_F(BatchFileRenamerTest, RenameFiles)
     {
-        const auto temporary_test_case_files_directory = temporary_test_files_directory / "five_files_ordered_alphabetically";
+        const auto directory = temporary_test_files_directory / "five_files_ordered_alphabetically";
 
-        const auto filenames = get_filenames_from_directory(temporary_test_case_files_directory);
+        const auto filenames = get_filenames_from_directory(directory);
 
         const auto filenames_expected = batch_file_renamer::rename_files(filenames);
 
-        const auto filenames_actual = get_filenames_from_directory(temporary_test_case_files_directory);
+        const auto filenames_actual = get_filenames_from_directory(directory);
 
         ASSERT_TRUE(std::equal(filenames_expected.begin(), filenames_expected.end(), filenames_actual.begin()));
     }

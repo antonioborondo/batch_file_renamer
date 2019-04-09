@@ -28,7 +28,7 @@ namespace batch_file_renamer_test
             return false;
         }
         
-        for (fs::directory_iterator directory_iterator(source_directory); fs::directory_iterator() != directory_iterator; directory_iterator++)
+        for (fs::directory_iterator directory_iterator{source_directory}; fs::directory_iterator{} != directory_iterator; directory_iterator++)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace batch_file_renamer_test
 
         if (fs::exists(directory) && fs::is_directory(directory))
         {
-            for (fs::directory_iterator directory_iterator(directory); fs::directory_iterator() != directory_iterator; directory_iterator++)
+            for (fs::directory_iterator directory_iterator{directory}; fs::directory_iterator{} != directory_iterator; directory_iterator++)
             {
                 if (fs::is_regular_file(directory_iterator->status()))
                 {

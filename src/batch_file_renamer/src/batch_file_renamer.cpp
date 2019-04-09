@@ -15,9 +15,15 @@ namespace batch_file_renamer
             const auto filename = filenames.at(i);
             const auto new_filename = filename.parent_path() / fs::path{std::to_wstring(i + 1) + filename.extension().wstring()};
             
-            fs::rename(filename, new_filename);
-
-            new_filenames.push_back(new_filename);
+            try
+            {
+                fs::rename(filename, new_filename);
+                
+                new_filenames.push_back(new_filename);
+            }
+            catch (const fs::filesystem_error&)
+            {
+            }
         }
 
         return new_filenames;
