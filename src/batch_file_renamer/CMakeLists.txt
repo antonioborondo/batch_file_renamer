@@ -35,6 +35,8 @@ set_target_properties(batch_file_renamer PROPERTIES
 set(TEST_FILES
     ${TEST_FILES_FOLDER}/batch_file_renamer_test.cpp
     ${TEST_FILES_FOLDER}/main.cpp
+    ${TEST_FILES_FOLDER}/utils.h
+    ${TEST_FILES_FOLDER}/utils.cpp
 )
 
 add_executable(batch_file_renamer_test
