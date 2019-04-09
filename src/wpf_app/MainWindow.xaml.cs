@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace WpfApp
 {
@@ -9,6 +10,19 @@ namespace WpfApp
             this.InitializeComponent();
 
             this.DataContext = new MainWindowModel();
+        }
+
+        private void OpenDirectory_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                (this.DataContext as MainWindowModel).OpenDirectory();
+            }
+        }
+
+        private void RenameFiles_Click(object sender, MouseButtonEventArgs e)
+        {
+            // TODO
         }
     }
 }

@@ -3,14 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="352"
         Width="349">
     <Grid>
-        <Button Content="Open folder" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Width="80" Height="20"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="20,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Button Content="Open folder" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Width="80" Height="20" PreviewMouseDown="OpenDirectory_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="20,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Text="{Binding Directory, UpdateSourceTrigger=PropertyChanged}"/>
         <ListView HorizontalAlignment="Left" Height="200" Margin="20,60,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding Filenames}"/>
-        <Button Content="Rename files" HorizontalAlignment="Left" Margin="240,280,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Content="Rename files" HorizontalAlignment="Left" Margin="240,280,0,0" VerticalAlignment="Top" Width="80" PreviewMouseDown="RenameFiles_Click"/>
     </Grid>
 </Window>
