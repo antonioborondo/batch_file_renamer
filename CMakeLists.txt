@@ -28,6 +28,16 @@ conan_cmake_run(
     BUILD missing
 )
 
+# NuGet
+SET(nuget_cmake ${CMAKE_BINARY_DIR}/nuget.cmake)
+
+if(NOT EXISTS ${nuget_cmake})
+    message(STATUS "Downloading nuget.cmake from https://github.com/antonioborondo/cmake_nuget")
+    file(DOWNLOAD "https://raw.githubusercontent.com/antonioborondo/cmake_nuget/master/nuget.cmake" ${nuget_cmake})
+endif()
+
+include(${nuget_cmake})
+
 # NaturalSort library
 SET(natural_sort_single_include ${CMAKE_CURRENT_BINARY_DIR}/natural_sort/include/natural_sort/natural_sort.hpp)
 
