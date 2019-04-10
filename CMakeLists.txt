@@ -32,8 +32,8 @@ conan_cmake_run(
 SET(nuget_cmake ${CMAKE_BINARY_DIR}/nuget.cmake)
 
 if(NOT EXISTS ${nuget_cmake})
-    message(STATUS "Downloading nuget.cmake from https://github.com/antonioborondo/cmake_nuget")
-    file(DOWNLOAD "https://raw.githubusercontent.com/antonioborondo/cmake_nuget/master/nuget.cmake" ${nuget_cmake})
+    message(STATUS "Downloading nuget.cmake from https://github.com/antonioborondo/nuget_cmake")
+    file(DOWNLOAD "https://raw.githubusercontent.com/antonioborondo/nuget_cmake/master/nuget.cmake" ${nuget_cmake})
 endif()
 
 include(${nuget_cmake})
