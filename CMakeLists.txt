@@ -10,14 +10,14 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 
 ##### Conan #####
-set(conan_cmake ${CMAKE_BINARY_DIR}/conan.cmake)
+set(CONAN_CMAKE ${CMAKE_BINARY_DIR}/conan.cmake)
 
-if(NOT EXISTS ${conan_cmake})
+if(NOT EXISTS ${CONAN_CMAKE})
     message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/develop/conan.cmake" ${conan_cmake})
+    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/develop/conan.cmake" ${CONAN_CMAKE})
 endif()
 
-include(${conan_cmake})
+include(${CONAN_CMAKE})
 
 conan_cmake_run(
     REQUIRES
@@ -30,22 +30,22 @@ conan_cmake_run(
 ##### Conan #####
 
 ##### NuGet #####
-set(nuget_cmake ${CMAKE_BINARY_DIR}/nuget.cmake)
+set(NUGET_CMAKE ${CMAKE_BINARY_DIR}/nuget.cmake)
 
-if(NOT EXISTS ${nuget_cmake})
+if(NOT EXISTS ${NUGET_CMAKE})
     message(STATUS "Downloading nuget.cmake from https://github.com/antonioborondo/nuget_cmake")
-    file(DOWNLOAD "https://raw.githubusercontent.com/antonioborondo/nuget_cmake/master/nuget.cmake" ${nuget_cmake})
+    file(DOWNLOAD "https://raw.githubusercontent.com/antonioborondo/nuget_cmake/master/nuget.cmake" ${NUGET_CMAKE})
 endif()
 
-include(${nuget_cmake})
+include(${NUGET_CMAKE})
 ##### NuGet #####
 
 ##### NaturalSort library #####
-set(natural_sort_library ${CMAKE_CURRENT_BINARY_DIR}/lib/natural_sort/include/natural_sort/natural_sort.hpp)
+set(NATURAL_SORT_LIBRARY ${CMAKE_CURRENT_BINARY_DIR}/lib/natural_sort/include/natural_sort/natural_sort.hpp)
 
-if(NOT EXISTS ${natural_sort_library})
+if(NOT EXISTS ${NATURAL_SORT_LIBRARY})
     message(STATUS "Downloading NaturalSort from https://github.com/scopeInfinity/NaturalSort")
-    file(DOWNLOAD "https://raw.githubusercontent.com/scopeInfinity/NaturalSort/master/natural_sort.hpp" ${natural_sort_library})
+    file(DOWNLOAD "https://raw.githubusercontent.com/scopeInfinity/NaturalSort/master/natural_sort.hpp" ${NATURAL_SORT_LIBRARY})
 endif()
 
 add_library(natural_sort INTERFACE)
