@@ -27,6 +27,18 @@ conan_cmake_run(
     BUILD missing
 )
 
+# NaturalSort library
+SET(natural_sort_single_include ${CMAKE_CURRENT_BINARY_DIR}/natural_sort/include/natural_sort/natural_sort.hpp)
+
+if(NOT EXISTS ${natural_sort_single_include})
+    message(STATUS "Downloading NaturalSort from https://github.com/scopeInfinity/NaturalSort")
+    file(DOWNLOAD "https://raw.githubusercontent.com/scopeInfinity/NaturalSort/master/natural_sort.hpp" ${natural_sort_single_include})
+endif()
+
+add_library(natural_sort INTERFACE)
+
+target_include_directories(natural_sort INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/natural_sort/include)
+
 add_subdirectory(src/filesystem_utils)
 add_subdirectory(src/wpf_app)
 
