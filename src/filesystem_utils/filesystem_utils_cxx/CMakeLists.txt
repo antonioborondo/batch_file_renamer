@@ -23,6 +23,9 @@ target_include_directories(filesystem_utils_cxx
 )
 
 target_link_libraries(filesystem_utils_cxx
+    PRIVATE
+    CONAN_PKG::fmt
+    natural_sort
     PUBLIC
     CONAN_PKG::boost_filesystem
 )

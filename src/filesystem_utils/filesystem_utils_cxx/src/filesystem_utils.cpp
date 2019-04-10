@@ -1,11 +1,18 @@
 #include "filesystem_utils_cxx/filesystem_utils.h"
 
 #include <boost/filesystem.hpp>
+#include <fmt/format.h>
+#include <natural_sort/natural_sort.hpp>
 
 namespace fs = boost::filesystem;
 
 namespace filesystem_utils_cxx
 {
+    fs::path get_temporary_directory()
+    {
+        return fs::temp_directory_path() / fs::unique_path();
+    }
+
     std::vector<fs::path> get_filenames_from_directory(const fs::path& directory)
     {
         std::vector<fs::path> filenames;
@@ -21,6 +28,11 @@ namespace filesystem_utils_cxx
             }
         }
 
+        std::sort(filenames.begin(), filenames.end(), [](const fs::path& filename_1, const fs::path& filename_2)
+        {
+            return SI::natural::compare<std::wstring>(filename_1.filename().wstring(), filename_2.filename().wstring());
+        });
+
         return filenames;
     }
 
@@ -28,10 +40,15 @@ namespace filesystem_utils_cxx
     {
         auto result = true;
 
+        const auto number_digits_filename = std::to_string(std::to_string(filenames.size()).length());
+
         for (auto i = 0; i < filenames.size(); i++)
         {
             const auto filename = filenames.at(i);
-            const auto new_filename = filename.parent_path() / fs::path{ std::to_wstring(i + 1) + filename.extension().wstring() };
+
+            const auto new_filename_number = fmt::format("{:0" + number_digits_filename + "d}", i + 1);
+            
+            const auto new_filename = filename.parent_path() / fs::path{new_filename_number + filename.extension().string()};
 
             try
             {
@@ -100,10 +117,5 @@ namespace filesystem_utils_cxx
         }
 
         return true;
-    }
-
-    fs::path get_temporary_folder()
-    {
-        return fs::temp_directory_path() / fs::unique_path();
     }
 }
