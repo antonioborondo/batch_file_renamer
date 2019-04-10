@@ -22,6 +22,7 @@ include(${conan_cmake})
 conan_cmake_run(
     REQUIRES
     boost_filesystem/1.69.0@bincrafters/stable
+    fmt/5.3.0@bincrafters/stable
     gtest/1.8.0@bincrafters/stable
     BASIC_SETUP CMAKE_TARGETS
     BUILD missing

@@ -1,6 +1,7 @@
 #include "filesystem_utils_cxx/filesystem_utils.h"
 
 #include <boost/filesystem.hpp>
+#include <fmt/format.h>
 #include <natural_sort/natural_sort.hpp>
 
 namespace fs = boost::filesystem;
@@ -39,10 +40,15 @@ namespace filesystem_utils_cxx
     {
         auto result = true;
 
+        const auto number_digits_filename = std::to_string(std::to_string(filenames.size()).length());
+
         for (auto i = 0; i < filenames.size(); i++)
         {
             const auto filename = filenames.at(i);
-            const auto new_filename = filename.parent_path() / fs::path{ std::to_wstring(i + 1) + filename.extension().wstring() };
+
+            const auto new_filename_number = fmt::format("{:0" + number_digits_filename + "d}", i + 1);
+            
+            const auto new_filename = filename.parent_path() / fs::path{new_filename_number + filename.extension().string()};
 
             try
             {
