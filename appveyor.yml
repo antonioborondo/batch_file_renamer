@@ -2,14 +2,17 @@ image:
   - Visual Studio 2013
 
 install:
-  - cmd: set PATH=%PATH%;%PYTHON%/Scripts/
+  - cmd: set PATH=%PATH%;%PYTHON%\Scripts\
   - cmd: pip.exe install conan
   - cmd: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+  - cmd: mkdir C:\NuGet
+  - cmd: curl -o C:\NuGet\nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  - cmd: set PATH=%PATH%;C:\NuGet\
 
 build_script:
   - cmd: mkdir batch_file_renamer_cmake
   - cmd: cd batch_file_renamer_cmake
-  - cmd: cmake -G "Visual Studio 12 2013 Win64" ../
+  - cmd: cmake -G "Visual Studio 12 2013 Win64" ..\
   - cmd: cmake --build . --config Release
 
 test_script:

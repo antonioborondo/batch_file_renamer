@@ -38,18 +38,13 @@ target_link_libraries(wpf_app
 )
 
 set_property(TARGET wpf_app PROPERTY VS_DOTNET_REFERENCES
-    Microsoft.CSharp
     PresentationCore
     PresentationFramework
     System
-    System.Core
-    System.Data
-    System.Data.DataSetExtensions
-    System.Drawing
-    System.Net.Http
     System.Windows.Forms
     System.Xaml
-    System.Xml
-    System.Xml.Linq
     WindowsBase
+    "packages/NaturalSort.Extension.1.0.2/lib/net40/NaturalSort.Extension.dll"
 )
+
+nuget(wpf_app)

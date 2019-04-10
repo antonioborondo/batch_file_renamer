@@ -9,15 +9,15 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIRECTORY})
 
-# Conan
-SET(conan_cmake ${CMAKE_BINARY_DIR}/conan.cmake)
+##### Conan #####
+set(CONAN_CMAKE ${CMAKE_BINARY_DIR}/conan.cmake)
 
-if(NOT EXISTS ${conan_cmake})
+if(NOT EXISTS ${CONAN_CMAKE})
     message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/develop/conan.cmake" ${conan_cmake})
+    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/develop/conan.cmake" ${CONAN_CMAKE})
 endif()
 
-include(${conan_cmake})
+include(${CONAN_CMAKE})
 
 conan_cmake_run(
     REQUIRES
@@ -27,25 +27,39 @@ conan_cmake_run(
     BASIC_SETUP CMAKE_TARGETS
     BUILD missing
 )
+##### Conan #####
 
-# NaturalSort library
-SET(natural_sort_single_include ${CMAKE_CURRENT_BINARY_DIR}/natural_sort/include/natural_sort/natural_sort.hpp)
+##### NuGet #####
+set(NUGET_CMAKE ${CMAKE_BINARY_DIR}/nuget.cmake)
 
-if(NOT EXISTS ${natural_sort_single_include})
+if(NOT EXISTS ${NUGET_CMAKE})
+    message(STATUS "Downloading nuget.cmake from https://github.com/antonioborondo/nuget_cmake")
+    file(DOWNLOAD "https://raw.githubusercontent.com/antonioborondo/nuget_cmake/master/nuget.cmake" ${NUGET_CMAKE})
+endif()
+
+include(${NUGET_CMAKE})
+##### NuGet #####
+
+##### NaturalSort library #####
+set(NATURAL_SORT_LIBRARY ${CMAKE_CURRENT_BINARY_DIR}/lib/natural_sort/include/natural_sort/natural_sort.hpp)
+
+if(NOT EXISTS ${NATURAL_SORT_LIBRARY})
     message(STATUS "Downloading NaturalSort from https://github.com/scopeInfinity/NaturalSort")
-    file(DOWNLOAD "https://raw.githubusercontent.com/scopeInfinity/NaturalSort/master/natural_sort.hpp" ${natural_sort_single_include})
+    file(DOWNLOAD "https://raw.githubusercontent.com/scopeInfinity/NaturalSort/master/natural_sort.hpp" ${NATURAL_SORT_LIBRARY})
 endif()
 
 add_library(natural_sort INTERFACE)
 
-target_include_directories(natural_sort INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/natural_sort/include)
+target_include_directories(natural_sort INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/lib/natural_sort/include)
+##### NaturalSort library #####
 
 add_subdirectory(src/filesystem_utils)
 add_subdirectory(src/wpf_app)
 
-# CTest
+##### CTest #####
 enable_testing()
 
 set(TEST_FILES_DIRECTORY ${CMAKE_SOURCE_DIR}/test_files)
 
 add_test(NAME filesystem_utils_cxx_test COMMAND filesystem_utils_cxx_test ${TEST_FILES_DIRECTORY})
+##### CTest #####

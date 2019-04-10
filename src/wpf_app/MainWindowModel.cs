@@ -1,7 +1,10 @@
 using FilesystemUtilsCsharp;
+using NaturalSort.Extension;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 
 namespace WpfApp
 {
@@ -24,9 +27,9 @@ namespace WpfApp
             }
         }
 
-        private List<string> filenames;
+        private IOrderedEnumerable<string> filenames;
 
-        public List<string> Filenames
+        public IOrderedEnumerable<string> Filenames
         {
             get
             {
@@ -62,7 +65,7 @@ namespace WpfApp
                 filenamesFromDirectory.Add(file.Name);
             }
 
-            this.Filenames = filenamesFromDirectory;
+            this.Filenames = filenamesFromDirectory.OrderBy(x => x, StringComparer.OrdinalIgnoreCase.WithNaturalSort());
         }
     }
 }
