@@ -1,13 +1,14 @@
 image:
   - Visual Studio 2013
 
+cache:
+  - '%USERPROFILE%\.conan\data -> CMakeLists.txt'
+
 install:
-  - cmd: set PATH=%PATH%;%PYTHON%\Scripts\
-  - cmd: pip.exe install conan
+  - cmd: choco install conan
+  - cmd: refreshenv
   - cmd: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-  - cmd: mkdir C:\NuGet
-  - cmd: curl -o C:\NuGet\nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  - cmd: set PATH=%PATH%;C:\NuGet\
+  - cmd: choco install nuget.commandline
 
 build_script:
   - cmd: mkdir batch_file_renamer_cmake
