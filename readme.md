@@ -3,6 +3,9 @@
 
 ![Screenshot](screenshot.png?raw=true)
 
+## Description
+Application to batch rename all the files contained in a selected folder using numbers with dynamically generated leading zeros to keep the same filename length.
+
 ## Features
 - Project generated with CMake that combines C++ and C#.
 - Batch file renaming library implemented with C++.
@@ -10,7 +13,7 @@
 - C++ library consumed by C# using P/Invoke.
 - C++ packages managed with Conan.
 - C# packages managed with NuGet.
-- Unit tests implemented with Google Test.
+- C++ unit tests implemented with Google Test.
 - CI implemented with AppVeyor.
 
 ## Libraries
