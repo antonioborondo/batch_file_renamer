@@ -1,6 +1,9 @@
 image:
   - Visual Studio 2013
 
+cache:
+  - %USERPROFILE%\.conan\data -> CMakeLists.txt
+
 install:
   - cmd: choco install conan
   - cmd: choco install nuget.commandline
