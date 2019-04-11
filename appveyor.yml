@@ -4,6 +4,7 @@ image:
 install:
   - cmd: choco install conan
   - cmd: choco install nuget.commandline
+  - cmd: refreshenv
 
 build_script:
   - cmd: mkdir batch_file_renamer_cmake
