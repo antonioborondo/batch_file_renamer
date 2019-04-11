@@ -2,7 +2,7 @@ image:
   - Visual Studio 2013
 
 cache:
-  - %USERPROFILE%\.conan\data -> CMakeLists.txt
+  - '%USERPROFILE%\.conan\data -> CMakeLists.txt'
 
 install:
   - cmd: choco install conan
