@@ -4,7 +4,7 @@
 ![Screenshot](screenshot.png?raw=true)
 
 ## Features
-- Project generated with CMake that combines C++ and C# code.
+- Project generated with CMake that combines C++ and C#.
 - Batch file renaming library implemented with C++.
 - UI implemented with C#.
 - C++ library consumed by C# using P/Invoke.
