@@ -18,7 +18,7 @@ add_library(filesystem_utils_c SHARED
 
 target_include_directories(filesystem_utils_c
     PRIVATE
-    ${PUBLIC_HEADER_FILES_FOLDER}
+    ${PUBLIC_HEADER_FILES_FOLDER}/filesystem_utils_c
 )
 
 target_link_libraries(filesystem_utils_c

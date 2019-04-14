@@ -19,7 +19,7 @@ add_library(filesystem_utils_cxx
 
 target_include_directories(filesystem_utils_cxx
     PRIVATE
-    ${PUBLIC_HEADER_FILES_FOLDER}
+    ${PUBLIC_HEADER_FILES_FOLDER}/filesystem_utils_cxx
 )
 
 target_link_libraries(filesystem_utils_cxx
