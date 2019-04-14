@@ -20,8 +20,8 @@ Application to batch rename all the files contained in a selected folder using n
 C++:
 - boost: https://www.boost.org
 - fmt: http://www.fmtlib.net
-- Google Test: https://github.com/google/googletest
-- NaturalSort: https://github.com/scopeInfinity/NaturalSort
+- Google Test: https://www.github.com/google/googletest
+- NaturalSort: https://www.github.com/scopeInfinity/NaturalSort
 
 C#:
 - NaturalSort.Extension: https://www.nuget.org/packages/NaturalSort.Extension
@@ -32,4 +32,4 @@ C#:
 - CMake: https://www.cmake.org
 - Conan: https://www.conan.io
 - NuGet: https://www.nuget.org
-- nuget_cmake: https://github.com/antonioborondo/nuget_cmake
+- nuget_cmake: https://www.github.com/antonioborondo/nuget_cmake
