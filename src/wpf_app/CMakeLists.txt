@@ -44,7 +44,7 @@ set_property(TARGET wpf_app PROPERTY VS_DOTNET_REFERENCES
     System.Windows.Forms
     System.Xaml
     WindowsBase
-    "packages/NaturalSort.Extension.1.0.2/lib/net40/NaturalSort.Extension.dll"
+    "packages/NaturalSort.Extension.2.0.0/lib/net40/NaturalSort.Extension.dll"
 )
 
 nuget(wpf_app)
