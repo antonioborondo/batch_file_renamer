@@ -9,6 +9,7 @@ install:
   - cmd: refreshenv
   - cmd: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
   - cmd: choco install nuget.commandline
+  - cmd: choco install swig
 
 build_script:
   - cmd: mkdir batch_file_renamer_cmake
