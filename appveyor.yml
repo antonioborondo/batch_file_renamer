@@ -18,3 +18,7 @@ build_script:
 
 test_script:
   - cmd: ctest --build-config Release --verbose
+
+artifacts:
+  - path: batch_file_renamer_cmake\bin\Release\
+    name: batch_file_renamer
