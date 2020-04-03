@@ -19,7 +19,7 @@ Application to batch rename all the files contained in a selected folder using n
 ## Libraries
 C++:
 - boost: https://www.boost.org
-- fmt: http://www.fmtlib.net
+- fmt: https://www.github.com/fmtlib/fmt
 - Google Test: https://www.github.com/google/googletest
 - NaturalSort: https://www.github.com/scopeInfinity/NaturalSort
 
