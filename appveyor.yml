@@ -13,7 +13,7 @@ install:
 build_script:
   - cmd: mkdir build
   - cmd: cd build
-  - cmd: cmake -G "Visual Studio 12 2013 Win64" ..\
+  - cmd: cmake -G "Visual Studio 12 2013 Win64" ..
   - cmd: cmake --build . --config Release
 
 test_script:
