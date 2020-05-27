@@ -11,8 +11,7 @@ install:
   - cmd: choco install nuget.commandline
 
 build_script:
-  - cmd: mkdir build
-  - cmd: cd build
+  - cmd: mkdir build && cd build
   - cmd: cmake -G "Visual Studio 12 2013 Win64" ..
   - cmd: cmake --build . --config Release
 
